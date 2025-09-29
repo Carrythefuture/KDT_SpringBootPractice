@@ -17,4 +17,8 @@ public class AuthService {
 
 		return authDAO.login(dto);
 	}
+	public int insert(AuthDTO dto) {
+
+		return authDAO.insert(dto);
+	}
 }

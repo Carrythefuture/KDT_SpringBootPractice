@@ -6,4 +6,7 @@
 	<select id="login" resultType="com.kedu.study.DTO.AuthDTO">
 		select * from auth where id=#{id} and pw=#{pw}
 	</select>
+		<insert id="insert">
+		insert into auth values(#{id} , #{pw} , #{name})
+	</insert>
 </mapper>

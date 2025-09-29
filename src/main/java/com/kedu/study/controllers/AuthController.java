@@ -18,7 +18,7 @@ public class AuthController {
 	private AuthService authService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> insert(@RequestBody AuthDTO dto){
+	public ResponseEntity<String> login(@RequestBody AuthDTO dto){
 		System.out.println(dto.getId() + ":" + dto.getPw());
 		AuthDTO result = authService.login(dto);
 		
@@ -32,4 +32,12 @@ public class AuthController {
 		}
 		return ResponseEntity.ok(text);
 	}
+	
+	@PostMapping("/insert")
+	public ResponseEntity<Void> insert (@RequestBody AuthDTO dto) {
+		System.out.println(dto.getId() + ":" + dto.getPw() + ":" + dto.getName());
+		authService.insert(dto);
+		return ResponseEntity.ok().build();
+	}
+	
 }
