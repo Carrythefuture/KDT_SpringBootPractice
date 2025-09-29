@@ -10,10 +10,15 @@ import com.kedu.study.DTO.AuthDTO;
 public class AuthDAO {
 	@Autowired
 	private SqlSession myBatis;
-	
+
 	public AuthDTO login(AuthDTO dto) {
-		
+
 		return myBatis.selectOne("Auth.login", dto);
 	}
-	
+
+	public int insert(AuthDTO dto) {
+
+		return myBatis.insert("Auth.insert",dto);
+	}
+
 }
