@@ -83,9 +83,8 @@ public class AuthController {
 	}
 	
 	@GetMapping("/myPage/{id}")
-	public ResponseEntity<Void> myPage (){
-		System.out.println("세션" + (String)session.getAttribute("loginId"));
-
-		return ResponseEntity.ok().build();
+	public ResponseEntity<AuthDTO> myPage (@PathVariable String id){
+		AuthDTO dto = authService.myPage(id);
+		return ResponseEntity.ok(dto);
 	}
 }

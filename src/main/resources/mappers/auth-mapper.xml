@@ -13,4 +13,8 @@
 	<delete id="delete">
 		delete from auth where id = #{id}
 	</delete>
+	
+	<select id="myPage" resultType="com.kedu.study.DTO.AuthDTO">
+		select * from auth where id=#{id}
+	</select>
 </mapper>

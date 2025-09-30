@@ -26,4 +26,8 @@ public class AuthDAO {
 		return myBatis.insert("Auth.delete",id);
 	}
 
+	public AuthDTO myPage(String id) {
+
+		return myBatis.selectOne("Auth.myPage",id);
+	}
 }

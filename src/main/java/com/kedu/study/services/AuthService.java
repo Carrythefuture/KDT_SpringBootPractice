@@ -26,4 +26,9 @@ public class AuthService {
 
 		return authDAO.delete(id);
 	}
+	
+	public AuthDTO myPage(String id) {
+
+		return authDAO.myPage(id);
+	}
 }
