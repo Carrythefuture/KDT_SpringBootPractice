@@ -4,7 +4,7 @@ public class AuthDTO {
 	private String id;
 	private String pw;
 	private String name;
-	
+
 	public AuthDTO() {
 		super();
 	}
@@ -32,5 +32,5 @@ public class AuthDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

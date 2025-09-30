@@ -20,7 +20,7 @@ public class AuthDAO {
 
 		return myBatis.insert("Auth.insert",dto);
 	}
-	
+
 	public int delete(String id) {
 
 		return myBatis.insert("Auth.delete",id);

@@ -21,7 +21,7 @@ public class AuthService {
 
 		return authDAO.insert(dto);
 	}
-	
+
 	public int delete(String id) {
 
 		return authDAO.delete(id);

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,29 +32,24 @@ public class AuthController {
 
 		AuthDTO result = authService.login(dto);
 
-		String text = "";
-
 		//우리는 dto로 받아서 null이 아니면 성공임.
 		Map<String,String> map = new HashMap<>();
+
 		if(result!=null) {
-			text = "success";
+			System.out.println("result :" + result.getId());
 			session.setAttribute("loginId", dto.getId());
 
-
 			map.put("loginId", dto.getId());
+			return ResponseEntity.ok(map);
 		}
-		else
-		{
-			text = "fail";
-		}
-
-		return ResponseEntity.ok(map);
+//		
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	}
 
 	@PostMapping("/logout")
 	public ResponseEntity<Map<String,String>> logout(HttpSession session){
 		System.out.println("여기는 로그아웃이얌");
-
+		System.out.println("세션" + (String)session.getAttribute("loginId"));
 	    // 세션 초기화
 	    session.invalidate(); // 로그인 관련 모든 세션 정보 제거
 
@@ -71,15 +67,23 @@ public class AuthController {
 		authService.insert(dto);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete (@PathVariable String id){
+	public ResponseEntity<Void> delete (@PathVariable String id, HttpSession session){
 		authService.delete(id);
+		session.invalidate(); // 로그인 관련 모든 세션 정보 제거
+		return ResponseEntity.ok().build();
+	}
+
+	@GetMapping
+	public ResponseEntity<Void> test (HttpSession session){
+		System.out.println("세션" + (String)session.getAttribute("loginId"));
+
 		return ResponseEntity.ok().build();
 	}
 	
-	@GetMapping
-	public ResponseEntity<Void> test (HttpSession session){
+	@GetMapping("/myPage/{id}")
+	public ResponseEntity<Void> myPage (){
 		System.out.println("세션" + (String)session.getAttribute("loginId"));
 
 		return ResponseEntity.ok().build();
