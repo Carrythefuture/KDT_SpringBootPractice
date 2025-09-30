@@ -30,7 +30,7 @@ public class AuthDAO {
 
 		return myBatis.selectOne("Auth.myPage",id);
 	}
-	
+
 	public AuthDTO update(AuthDTO dto) {
 
 		return myBatis.selectOne("Auth.update",dto);
