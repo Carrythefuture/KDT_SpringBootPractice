@@ -48,7 +48,7 @@ public class AuthDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	
+
+
+
 }

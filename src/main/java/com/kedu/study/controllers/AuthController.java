@@ -43,7 +43,7 @@ public class AuthController {
 			map.put("loginId", dto.getId());
 			return ResponseEntity.ok(map);
 		}
-//		
+//
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	}
 
@@ -82,16 +82,16 @@ public class AuthController {
 
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@GetMapping("/myPage/{id}")
 	public ResponseEntity<AuthDTO> myPage (@PathVariable String id){
 		AuthDTO dto = authService.myPage(id);
 		return ResponseEntity.ok(dto);
 	}
-	
-	
+
+
 	@PutMapping("/{id}")
-	public ResponseEntity<AuthDTO> update(@PathVariable int id, @RequestBody AuthDTO dto){
+	public ResponseEntity<AuthDTO> update(@PathVariable String id, @RequestBody AuthDTO dto){
 		System.out.println("id:"+id+":"+"dto:"+dto);
 		AuthDTO resultDto = authService.update(dto);
 		return ResponseEntity.ok(resultDto);

@@ -19,6 +19,6 @@
 	</select>
 	
 	<update id="update">
-		update into auth set name=#{name} where id=#{id}
+		update auth set name=#{name} where id=#{id}
 	</update>
 </mapper>
