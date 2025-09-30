@@ -9,4 +9,8 @@
 		<insert id="insert">
 		insert into auth values(#{id} , #{pw} , #{name})
 	</insert>
+	
+	<delete id="delete">
+		delete from auth where id = #{id}
+	</delete>
 </mapper>
