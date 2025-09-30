@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -86,5 +87,13 @@ public class AuthController {
 	public ResponseEntity<AuthDTO> myPage (@PathVariable String id){
 		AuthDTO dto = authService.myPage(id);
 		return ResponseEntity.ok(dto);
+	}
+	
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<AuthDTO> update(@PathVariable int id, @RequestBody AuthDTO dto){
+		System.out.println("id:"+id+":"+"dto:"+dto);
+		AuthDTO resultDto = authService.update(dto);
+		return ResponseEntity.ok(resultDto);
 	}
 }

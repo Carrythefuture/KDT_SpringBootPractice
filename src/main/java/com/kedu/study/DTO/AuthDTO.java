@@ -4,15 +4,19 @@ public class AuthDTO {
 	private String id;
 	private String pw;
 	private String name;
-
+	private String phone;
+	private String address;
 	public AuthDTO() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public AuthDTO(String id, String pw , String name) {
+	public AuthDTO(String id, String pw, String name, String phone, String address) {
 		super();
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
+		this.phone = phone;
+		this.address = address;
 	}
 	public String getId() {
 		return id;
@@ -32,5 +36,19 @@ public class AuthDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
+	
 }

@@ -31,4 +31,9 @@ public class AuthService {
 
 		return authDAO.myPage(id);
 	}
+	
+	public AuthDTO update(AuthDTO dto) {
+
+		return authDAO.update(dto);
+	}
 }

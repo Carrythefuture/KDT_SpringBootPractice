@@ -7,7 +7,7 @@
 		select * from auth where id=#{id} and pw=#{pw}
 	</select>
 		<insert id="insert">
-		insert into auth values(#{id} , #{pw} , #{name})
+		insert into auth values(#{id} , #{pw} , #{name},#{phone},#{address})
 	</insert>
 	
 	<delete id="delete">
@@ -17,4 +17,8 @@
 	<select id="myPage" resultType="com.kedu.study.DTO.AuthDTO">
 		select * from auth where id=#{id}
 	</select>
+	
+	<update id="update">
+		update into auth set name=#{name} where id=#{id}
+	</update>
 </mapper>
