@@ -18,4 +18,24 @@ public class BoardDAO {
 		return myBatis.selectList("Board.getList");
 	}
 	
+	public int writePost(BoardDTO boardDTO)
+	{
+		myBatis.insert("Board.writePost",boardDTO);
+		
+		System.out.println(boardDTO.getSeq());
+		return boardDTO.getSeq();
+	}
+	
+	public BoardDTO getPost(int seq){
+
+
+		return myBatis.selectOne("Board.getPost",seq);
+	}
+	public void deletePost(int seq) {
+		myBatis.delete("Board.deletePost",seq);
+	}
+	
+	public void modifyPost(BoardDTO boardDTO) {
+		myBatis.update("Board.modifyPost",boardDTO);
+	}
 }

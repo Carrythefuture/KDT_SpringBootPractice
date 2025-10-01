@@ -7,4 +7,23 @@
 		select * from board
 	</select>
 	
+	<insert id="writeContent">
+		insert into board values(board_seq.nextval, #{id}, #{title}, #{content}, sysdate)
+		<selectKey order="AFTER" keyProperty="seq" resultType="int">
+			select board_seq.currval from dual
+		</selectKey>
+	</insert>
+	
+	<select id="getPost" resultType="com.kedu.study.DTO.BoardDTO">
+		select * from board where seq = #{seq}
+	</select>
+	
+	
+	<delete id="deletePost">
+		delete from board where seq = #{seq}
+	</delete>
+	
+	<update id="modifyPost">
+		update board set title = #{title} , content = #{content} where seq = #{seq}
+	</update>
 </mapper>
